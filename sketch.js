@@ -11,6 +11,8 @@ let serial;
 // declarar variable para datos recibidos
 let datosRecibidos = "esperando...";
 
+let datosSeparados = null;
+
 // declarar variable con nombre de puerto de Arduino
 // actualizar con nombre del puerto en tu computador
 let nombrePuerto = "/dev/tty.usbmodem143301";
@@ -108,6 +110,9 @@ function recibirDatos() {
   
   // actualizar variable datosRecibidos
   datosRecibidos = entrada;
+  
+  // datos separados por comas
+  datosSeparados = split(entrada, ',');
 }
 
 // draw() ocurre en bucle, después de setup()
