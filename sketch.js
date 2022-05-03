@@ -1,4 +1,4 @@
-// clase-08-ejemplo-p5js-texto
+// clase-08-ejemplo-p5js-elipse
 // codigo adaptado desde ejemplo base de p5-serialcontrol
 // por montoyamoraga
 // v0.0.1 mayo 2022
@@ -8,14 +8,15 @@
 // declarar variable para puerto serial
 let serial;
 
-// declarar variable para datos recibidos
-let datosRecibidos = "esperando...";
-
-let datosSeparados = [0, 0];
-
 // declarar variable con nombre de puerto de Arduino
 // actualizar con nombre del puerto en tu computador
 let nombrePuerto = "/dev/tty.usbmodem143301";
+
+// declarar variable para datos recibidos
+let datosRecibidos = "esperando...";
+
+// declarar variable para datos recibidos, separados en un arreglo
+let datosSeparados = [0, 0];
 
 // setup() ocurre una vez al principio
 function setup() {
