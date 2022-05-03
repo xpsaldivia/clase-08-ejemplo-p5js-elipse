@@ -11,7 +11,7 @@ let serial;
 // declarar variable para datos recibidos
 let datosRecibidos = "esperando...";
 
-let datosSeparados = null;
+let datosSeparados = [0, 0];
 
 // declarar variable con nombre de puerto de Arduino
 // actualizar con nombre del puerto en tu computador
@@ -121,10 +121,24 @@ function draw() {
   // fondo blanco
   background(255);
 
-  // relleno negro
-  fill(0);
+  // mapear datos recibidos desde perilla [0,1023] a rango color [0, 255]
+  let colorPotenciometro = map(datosSeparados[1], 0, 1023, 0, 255);
+  console.log(colorPotenciometro);
 
-  // texto datos recibidos en posición 10, 10
-  text(datosRecibidos, 10, 10);
+  // si el botón no está presionado
+  if (datosSeparados[0] == 0) {
+
+    // potenciómetro controla cantidad de rojo
+    fill(colorPotenciometro, 0, 0);
+  }
+  // si el botón está presionado
+  else {
+
+     // potenciómetro controla cantidad de verde
+    fill(0, colorPotenciometro, 0);
+  }
+
+  // dibujar elipse
+  ellipse(width/2, height/2, 100, 100);
   
 }
